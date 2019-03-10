@@ -1,0 +1,9 @@
+{% extends 'myapp/base.html' %}
+
+{% block content %}
+    {% for question in all_questions %}
+        <div class="question" style="margin-bottom: 10px">
+            <h2><a href="{% url 'answer' pk=question.pk %}">{{ question.question }}</a></h2>
+        </div>
+    {% endfor %}
+{% endblock %}

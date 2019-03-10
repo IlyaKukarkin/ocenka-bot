@@ -1,0 +1,15 @@
+{% extends 'myapp/base.html' %}
+
+{% block content %}
+    {% if question_result %}
+    <h1>Возможно вы имели ввиду:</h1>
+    <br/>
+        {% for question in question_result %}
+            <div class="question_recent">
+                <h3><a href="{% url 'answer' pk=question.pk %}">{{ question.question }}</a></h3>
+            </div>
+        {% endfor %}
+    {% else %}
+        <h1>Ничего не найдено</h1>
+    {% endif %}
+{% endblock %}

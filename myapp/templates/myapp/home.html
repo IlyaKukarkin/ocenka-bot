@@ -1,0 +1,11 @@
+{% extends 'myapp/base.html' %}
+
+{% block content %}
+    <h1>Вы недавно спрашивали:</h1>
+    <br/>
+    {% for question in recent_questions %}
+        <div class="question_recent">
+            <h3><a href="{% url 'answer' pk=question.pk %}">{{ question.question }}</a></h3>
+        </div>
+    {% endfor %}
+{% endblock %}

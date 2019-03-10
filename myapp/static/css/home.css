@@ -1,0 +1,66 @@
+.content {
+    margin-left: 40px;
+}
+
+h1, h2, h3, h4 {
+    font-family: 'HANSIEF';
+}
+
+.date {
+    color: #828282;
+}
+
+.save {
+    float: right;
+}
+
+.post-form textarea, .post-form input {
+    width: 100%;
+}
+
+.question {
+    width: 100%;
+    margin-bottom: 70px;
+}
+
+.question h2 a, .question h2 a:visited {
+    color: #000000;
+}
+
+.question h3 a, .question h3 a:visited {
+    color: #000000;
+}
+
+.question_recent {
+    width: 100%;
+}
+
+.question_recent h3 a, .question_recent h3 a:visited {
+    color: #000000;
+}
+
+/* The navigation bar */
+.navbar {
+    overflow: hidden;
+    background-color: #333;
+    position: fixed; /* Set the navbar to fixed position */
+    top: 0; /* Position the navbar at the top of the page */
+    width: 100%; /* Full width */
+}
+
+/* Links inside the navbar */
+.navbar a {
+    float: left;
+    display: block;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 26pt;
+}
+
+/* Change background on mouse-over */
+.navbar a:hover {
+    background: #ddd;
+    color: black;
+}

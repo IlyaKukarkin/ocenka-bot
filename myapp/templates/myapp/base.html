@@ -1,0 +1,30 @@
+{% load static %}
+<html>
+    <head>
+        <title>Ocenka-BOT</title>
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+        <link rel="stylesheet" href="{% static 'css/home.css' %}">
+    </head>
+    <body>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <div class="navbar">
+            <a class="active" href="/">Чат-бот: оценка</a>
+            <a href="/question">Задать вопрос</a>
+            <a href="/all">Все вопросы</a>
+        </div>
+
+        <div class="content container">
+            <div class="row">
+                <div class="align-middle">
+                    {% block content %}
+                    {% endblock %}
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
