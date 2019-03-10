@@ -48,17 +48,17 @@ def question_result(request):
         init(Question.objects.all())
     err = False
     res = []
-    if (config.result1 != -1):
+    if (config.result1 != ""):
         try:
-            res.append(Question.objects.get(pk=config.result1))
+            res.append(Question.objects.get(question=config.result1))
         except Question.DoesNotExist:
             err = True
         try:
-            res.append(Question.objects.get(pk=config.result2))
+            res.append(Question.objects.get(question=config.result2))
         except Question.DoesNotExist:
             err = True
         try:
-            res.append(Question.objects.get(pk=config.result3))
+            res.append(Question.objects.get(question=config.result3))
         except Question.DoesNotExist:
             err = True
     return render(request, 'myapp/question_result.html', {'question_result': res})
@@ -78,9 +78,9 @@ def find_question(qst_to_find):
     qst_to_find = get_ready_question(qst_to_find)
 
     min_res_bag = 1
-    resIndexBag1 = -1
-    resIndexBag2 = -1
-    resIndexBag3 = -1
+    resIndexBag1 = ""
+    resIndexBag2 = ""
+    resIndexBag3 = ""
     result = config.main_bag.copy()
     result.append(qst_to_find)
     index1 = len(result) - 1
@@ -89,20 +89,21 @@ def find_question(qst_to_find):
     
     for i, sent in enumerate(result):
         calculate = scipy.spatial.distance.cosine(bag_vectors[index1], bag_vectors[i])
-        if (calculate < min_res_bag and calculate != 0):
-            resIndexBag3 = resIndexBag2
-            resIndexBag2 = resIndexBag1
-            resIndexBag1 = i
-            min_res_bag = calculate
+        if (calculate < min_res_bag):
+            if (min_res_bag != 0 and i != index1):
+                resIndexBag3 = resIndexBag2
+                resIndexBag2 = resIndexBag1
+                resIndexBag1 = config.all_questions_string[i]
+                min_res_bag = calculate
 
     if (min_res_bag != 1):
         config.result1 = resIndexBag1
         config.result2 = resIndexBag2
         config.result3 = resIndexBag3
     else:
-        config.result1 = -1
-        config.result2 = -1
-        config.result3 = -1
+        config.result1 = ""
+        config.result2 = ""
+        config.result3 = ""
 
 def get_ready_question(question):
     tokens = []
