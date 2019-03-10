@@ -6,16 +6,8 @@ h1, h2, h3, h4 {
     font-family: 'HANSIEF';
 }
 
-.date {
-    color: #828282;
-}
-
-.save {
-    float: right;
-}
-
-.post-form textarea, .post-form input {
-    width: 100%;
+.post-form input {
+    width: 50%;
 }
 
 .question {

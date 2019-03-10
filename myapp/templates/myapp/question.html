@@ -2,7 +2,9 @@
 
 {% block content %}
     <form method="POST" class="post-form">{% csrf_token %}
-        {{ form.as_p }}
-        <button type="submit" class="save btn btn-default">Save</button>
+        <h2>Ваш вопрос:</h2>
+        <br/>
+        {{ form.your_question }}
+        <button type="submit" class="save btn btn-default">Искать</button>
     </form>
 {% endblock %}
